@@ -17,7 +17,7 @@
     "express-session": "*",
     "form-data": "*",
     "method-override": "*",
-    "mongodb": "^4.2.1",
+    "mongodb": "^4.17.0",
     "mongoose": "^5.11.15",
     "monk": "*",
     "morgan": "*",
