@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block middle_content %}
+
+  <div class="mt-6 p-2">
+    <div class="py-2 text-xl font-bold">SUBSCRIPTION STATUS</div>
+
+    <div class="py-2">
+      {% if account['subscription']['status'] == 'trial' %}
+        <div class="p-2">You are currently in a trial period.</div>
+        <div class="p-2">Your subscription is set to automatically activate at the end of your trial period.</div>
+
+      {% elif account['subscription']['status'] != 'active' %}
+        <div class="p-2">You do not have an active subscription at this moment. You should <a href="/subscribe">subscribe</a>.</p>
+        <div class="p-2"><a href="/subscribe" class="rounded-md bg-yellow-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-yellow-100 block text-center ring-1 ring-yellow-400 whitespace-nowrap cursor-pointer">SUBSCRIBE NOW!</a></div>
+
+      {% else %}
+        <div class="p-2">You have an active subscription.</div>
+
+      {% endif %}
+    </div>
+
+    <!-- stripe manage billing button !-->
+    <div class="flex p-2">
+      <a href="/create-portal-session" class="rounded-md bg-yellow-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-yellow-100 block text-center ring-1 ring-yellow-400 whitespace-nowrap cursor-pointer">MANAGE YOUR SUBSCRIPTION</a>
+    </div>
+  </div>
+
+{% endblock %}
